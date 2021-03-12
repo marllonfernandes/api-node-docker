@@ -5,7 +5,8 @@
     "main": "index.js",
     "scripts": {
         "dev": "nodemon -- -r dotenv/config src/server.js",
-        "start": "pm2 start src/server.js --watch --no-daemon --node-args=\"-r \""
+        "old": "pm2 start src/server.js --watch --no-daemon --node-args=\"-r \"",
+        "start": "pm2 start src/server.js --watch"
     },
     "keywords": [],
     "author": "",

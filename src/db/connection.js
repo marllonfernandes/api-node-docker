@@ -11,8 +11,18 @@ const options = {
 
 if (DB_USER && DB_PASS) {
     mongoose.connect(`mongodb://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}`, options)
+        .then(() => {
+            console.log('MongoDb is connected!')
+        }).catch((error) => {
+            console.log(error)
+        })
 } else {
     mongoose.connect(`mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`, options)
+        .then(() => {
+            console.log('MongoDb is connected!')
+        }).catch((error) => {
+            console.log(error)
+        })
 }
 mongoose.Promise = global.Promise
 

@@ -5,6 +5,7 @@ Você pode Criar/Alterar e Excluir um usuário com as propriedades name e email.
 
 ## Instalações
 
+- NPM versão > 7.6.0
 - Docker
 - Chocolatey (necessário para instalação do Make)
 - Make

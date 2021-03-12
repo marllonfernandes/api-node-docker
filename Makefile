@@ -12,5 +12,10 @@ down:
 
 .PHONY: logs
 
+stop:
+	docker-compose stop
+
+.PHONY: stop
+
 logs:
 	docker-compose logs -f

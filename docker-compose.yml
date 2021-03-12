@@ -9,6 +9,8 @@ services:
       - ${DB_PORT}:27017
     environment: 
       MONGO_INITDB_DATABASE: ${DB_NAME}
+    volumes:
+      - dbdata:/data/db
   
   api:
     image: node:latest
@@ -23,10 +25,12 @@ services:
     volumes:
       - .:/usr/src/app
     working_dir: /usr/src/app
-    command: npm start
+    command: npm run dev
     logging:
       driver: "json-file"
       options: 
         max-size: "10m" 
         max-file: "5" 
-    
+
+volumes:
+  dbdata:
