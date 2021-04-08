@@ -1,6 +1,15 @@
 version: "3.2"
 
-services: 
+services:
+  rabbitmq3:
+    image: rabbitmq:3-management
+    environment:
+      RABBITMQ_ERLANG_COOKIE: 'secret cookie here'
+    ports: 
+      - ${RMQ_PORT}:15672
+    volumes:
+      - dbdata:/data/rabbitmq
+
   db:
     image: mongo:4.2
     container_name: db
