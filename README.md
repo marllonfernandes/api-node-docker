@@ -7,17 +7,16 @@ Você pode Criar/Alterar e Excluir um usuário com as propriedades name e email.
 
 - NPM versão > 7.6.0
 - Docker
-- Chocolatey (necessário para instalação do Make)
-- Make
 - Node
-## Iniciar Aplicação
+## Preparar Aplicação
 
 - Criar o arquivo .env com as configurações
 - Executar os comandos abaixo na pasta raiz do projeto:
 - npm install
-- make up
 
-## Outros Comandos
+## Comandos da Aplicação
 
-- make down (make down para finalizar aplicação)
-- make logs (make logs para visualizar o logs da aplicação)
+- docker-compose up -d
+- docker-compose down
+- docker-compose stop
+- docker-compose logs -f

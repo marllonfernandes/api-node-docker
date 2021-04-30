@@ -22,7 +22,7 @@ services:
       - dbdata:/data/db
   
   api:
-    image: node:latest
+    image: node:14.16.1-alpine3.13
     container_name: api
     restart: always
     env_file: 
