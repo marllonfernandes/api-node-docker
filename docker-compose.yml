@@ -35,6 +35,8 @@ services:
       - .:/usr/src/app
     working_dir: /usr/src/app
     command: npm run dev
+    env_file: 
+      - ./.env
     logging:
       driver: "json-file"
       options: 
