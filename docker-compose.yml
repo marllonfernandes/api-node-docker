@@ -1,14 +1,14 @@
 version: "3.2"
 
 services:
-  rabbitmq3:
-    image: rabbitmq:3-management
-    environment:
-      RABBITMQ_ERLANG_COOKIE: 'secret cookie here'
-    ports: 
-      - ${RMQ_PORT}:15672
-    volumes:
-      - dbdata:/data/rabbitmq
+  # rabbitmq3:
+  #   image: rabbitmq:3-management
+  #   environment:
+  #     RABBITMQ_ERLANG_COOKIE: 'secret cookie here'
+  #   ports: 
+  #     - ${RMQ_PORT}:15672
+  #   volumes:
+  #     - dbdata:/data/rabbitmq
 
   db:
     image: mongo:4.2
@@ -21,9 +21,10 @@ services:
     volumes:
       - dbdata:/data/db
   
-  api:
-    image: node:14.16.1-alpine3.13
-    container_name: api
+  crud-user:
+    # image: node:14.16.1-alpine3.13
+    build: .
+    container_name: crud-user
     restart: always
     env_file: 
       - .env
@@ -34,9 +35,7 @@ services:
     volumes:
       - .:/usr/src/app
     working_dir: /usr/src/app
-    command: npm run dev
-    env_file: 
-      - ./.env
+    command: npm start
     logging:
       driver: "json-file"
       options: 

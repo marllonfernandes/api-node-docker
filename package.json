@@ -4,9 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "nodemon -- -r dotenv/config src/server.js",
-        "old": "pm2 start src/server.js --watch --no-daemon --node-args=\"-r \"",
-        "start": "pm2 start src/server.js --watch"
+        "start": "node src/server.js"
     },
     "keywords": [],
     "author": "",
@@ -15,10 +13,6 @@
         "body-parser": "^1.19.0",
         "express": "^4.17.1",
         "mongoose": "^4.13.17",
-        "pm2": "^4.5.5"
-    },
-    "devDependencies": {
-        "dotenv": "^8.2.0",
-        "nodemon": "^2.0.7"
+        "dotenv": "^8.2.0"
     }
 }

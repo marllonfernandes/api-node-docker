@@ -12,6 +12,8 @@ const allowCors = (req, res, next) => {
     next()
 }
 
+require('dotenv').config()
+
 app.use(allowCors)
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())

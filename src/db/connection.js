@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+require('dotenv').config()
 const { DB_USER, DB_PASS, DB_HOST, DB_PORT, DB_NAME } = process.env
 const options = {
     useMongoClient: true,
@@ -9,21 +10,17 @@ const options = {
     bufferMaxEntries: 0
 }
 
-if (DB_USER && DB_PASS) {
-    mongoose.connect(`mongodb://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}`, options)
-        .then(() => {
-            console.log('MongoDb is connected!')
-        }).catch((error) => {
-            console.log(error)
-        })
-} else {
-    mongoose.connect(`mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`, options)
-        .then(() => {
-            console.log('MongoDb is connected!')
-        }).catch((error) => {
-            console.log(error)
-        })
-}
+const connectionString = DB_USER && DB_PASS ? `mongodb://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}` : `mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`
+
+console.log(`connectionStringDB: ${connectionString}`)
+
+mongoose.connect(connectionString, options)
+    .then(() => {
+        console.log('MongoDb is connected!')
+    }).catch((error) => {
+        console.log(error)
+    })
+
 mongoose.Promise = global.Promise
 
 const user = mongoose.Schema({
